@@ -43,8 +43,8 @@ def multiplication(num1, num2):  # Takes the numbers as arguments.
 # Create a while loop to always get an input.
 while True:
     # Open the file to write the answers to.
-    efile_open = open("equations.txt", "a+")
-    num1 = ""
+    with open("equations.txt", "a+") as efile_open:
+        num1 = ""
     # Receive integer input.
     while num1 != int():
         try:
@@ -81,8 +81,9 @@ while True:
         if next_calc == "1":
             continue
         elif next_calc == "2":
-            efile_open.write(str(addition(num1, num2)))
-            break
+            with open("equations.txt", "a+") as efile_open:
+                efile_open.write(str(addition(num1, num2)))
+                break
             
         
     elif equation_type == 2:
@@ -90,8 +91,9 @@ while True:
         if next_calc == "1":
             continue
         elif next_calc == "2":
-            efile_open.write(str(subtraction(num1, num2)))
-            break
+            with open("equations.txt", "a+") as efile_open:
+                efile_open.write(str(subtraction(num1, num2)))
+                break
         
        
     elif equation_type == 3:
@@ -99,27 +101,27 @@ while True:
         if next_calc == "1":
             continue
         elif next_calc == "2":
-            efile_open.write(str(multiplication(num1, num2)))
-            break
+            with open("equations.txt", "a+") as efile_open:
+                efile_open.write(str(multiplication(num1, num2)))
+                break
         
     elif equation_type == 4:
         next_calc = input("1. Another calculation\n2. Print previous calculation\nEnter here: ")
         if next_calc == "1":
             continue
         elif next_calc == "2":
-            efile_open.write(str(division(num1, num2)))
-            break
+            with open("equations.txt", "a+") as efile_open:
+                efile_open.write(str(division(num1, num2)))
+                break
         
     elif equation_type == 4 and num2 == 0:
         next_calc = input("1. Another calculation\n2. Print previous calculation\nEnter here: ")
         if next_calc == "1":
             continue
         elif next_calc == "2":
-            efile_open.write(str(division(num1, num2)))
-            break
+            with open("equations.txt", "a+") as efile_open:
+                efile_open.write(str(division(num1, num2)))
+                break
     else:
         print("Not a valid sum.")
     
-   
-        
-    efile_open.close() # Close the file
