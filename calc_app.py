@@ -43,6 +43,7 @@ def multiplication(num1, num2):  # Takes the numbers as arguments.
 # Create a while loop to always get an input.
 while True:
     # Open the file to write the answers to.
+    # Changed the way I open the file to make it more efficient.
     with open("equations.txt", "a+") as efile_open:
         num1 = ""
     # Receive integer input.
